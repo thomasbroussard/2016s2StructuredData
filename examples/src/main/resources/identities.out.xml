@@ -1,0 +1,22 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<table>
+<thead>
+<tr>
+<th>Display Name</th><th>Email</th><th>Phone Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Thomas Broussard</span></td><td><span>tbroussard@gmail.com</span></td><td><span>+33012345678</span></td>
+</tr>
+<tr>
+<td><span>Quentin Decayeux</span></td><td><span>qdecayeux@gmail.com</span></td><td><span>+33087654321</span></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:8080/testXsl/descriptionToHtml.xsl"?>
+
+<!-- root element or the document element -->
+<identities>
+    <!-- identity: a child element of identities -->
+    <identity> 
+        <!-- property : a child element of identity -->
+        <property name="displayName" type="text">Thomas Broussard</property> 
+        <!-- name=displayName "name" is the attribute name and displayName is the value-->
+        <!-- "Thomas Broussard" is the text content of the property tag                -->
+        <property name="email" type="email">tbroussard@gmail.com</property>
+        <property name="phoneNumber" type="text">+33012345678</property>
+    </identity>
+    <identity> 
+        <property name="displayName" type="text">Quentin Decayeux</property> 
+        <property name="email" type="email">qdecayeux@gmail.com</property>
+        <property name="phoneNumber" type="text">+33087654321</property>
+    </identity>
+
+
+</identities>
