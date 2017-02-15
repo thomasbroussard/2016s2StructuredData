@@ -23,6 +23,8 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * @author tbrou
  *
@@ -31,6 +33,27 @@ public class Main {
 
 	
 	public static void main(String[] args) throws TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError, SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+//		xmlOperations();
+		Identity identity = new Identity("Thomas Broussard", "tbroussard@gmail.com", "+0123456789");
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.writeValue(new File("identitiesFromJackson.json"), identity);
+	
+		System.out.println(objectMapper.writeValueAsString(identity));
+		
+	}
+
+	/**
+	 * @throws TransformerConfigurationException
+	 * @throws TransformerFactoryConfigurationError
+	 * @throws TransformerException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 * @throws XPathExpressionException
+	 */
+	private static void xmlOperations() throws TransformerConfigurationException, TransformerFactoryConfigurationError,
+			TransformerException, SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 		Transformer newTransformer = TransformerFactory.newInstance().
 				newTransformer(new StreamSource(new File("src/main/resources/descriptionToHtml.xsl")));
 		newTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -43,6 +66,5 @@ public class Main {
 		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("src/main/resources/identities.xml"));
 		XPathExpression xpath = XPathFactory.newInstance().newXPath().compile("//property[@name='email']");
 		System.out.println(xpath.evaluate(document.getDocumentElement()));
-		
 	}
 }
