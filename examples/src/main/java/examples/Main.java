@@ -5,6 +5,7 @@ package examples;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,6 +24,7 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -37,9 +39,14 @@ public class Main {
 		Identity identity = new Identity("Thomas Broussard", "tbroussard@gmail.com", "+0123456789");
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.writeValue(new File("identitiesFromJackson.json"), identity);
+		objectMapper.writeValue(new File("src/main/resources/identitiesFromJackson.json"), identity);
 	
-		System.out.println(objectMapper.writeValueAsString(identity));
+		File jsonFile = new File("src/main/resources/identities.json");
+		List<Identity> identities = objectMapper.readValue(jsonFile, new TypeReference<List<Identity>>(){});
+		identities.add(new Identity("Clément Serrano", "cserr@gmail.com", "+1234569878"));
+		objectMapper.writeValue(new File("src/main/resources/identitiesFromJackson.json"), identities);
+		
+		System.out.println(objectMapper.writeValueAsString(identities));
 		
 	}
 

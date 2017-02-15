@@ -12,6 +12,12 @@ public class Identity {
 	private String email;
 	private String phoneNumber;
 	
+	/**
+	 * 
+	 */
+	public Identity() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	/**
 	 * @param displayName
